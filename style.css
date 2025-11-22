@@ -16,7 +16,47 @@
 * {
   box-sizing: border-box;
 }
+:root {
+  --bg: #e6f9ff;
+  --panel: rgba(2, 48, 71, 0.82);
+  --card: rgba(3, 58, 85, 0.78);
+  --border: rgba(255, 255, 255, 0.14);
+  --accent: #00ffd5;
+  --accent-strong: #00c9a7;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.78);
+  --shadow: 0 30px 80px rgba(2, 36, 50, 0.18);
+  --radius: 14px;
+}
 
+/* Neon teal primary button polish */
+button.primary {
+  box-shadow: 0 8px 30px rgba(0, 255, 213, 0.12), 0 2px 6px rgba(0, 0, 0, 0.10);
+  color: #001f26;
+}
+
+button.primary:hover {
+  box-shadow: 0 14px 40px rgba(0, 255, 213, 0.20);
+  transform: translateY(-2px);
+}
+
+/* Make badges & accents pop against lighter blue background */
+.badge {
+  background: linear-gradient(135deg, rgba(0,255,213,0.10), rgba(0,201,167,0.10));
+  color: var(--accent);
+}
+
+/* Ensure inputs contrast and focus glow matches neon theme */
+.field input[type="text"],
+.field input[type="number"] {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+}
+
+.field input:focus {
+  box-shadow: 0 0 0 4px rgba(0, 255, 213, 0.12);
+}
 body {
   margin: 0;
   min-height: 100vh;
@@ -151,6 +191,19 @@ button {
   transition: transform 120ms ease, box-shadow 120ms ease, background 150ms ease;
   border: 1px solid var(--border);
 }
+:root {
+  --bg: #e6ffe6;
+}
+
+body {
+  background: radial-gradient(circle at 10% 20%, rgba(46, 204, 113, 0.08), transparent 32%),
+              radial-gradient(circle at 90% 10%, rgba(46, 204, 113, 0.06), transparent 30%),
+              var(--bg);
+}
+
+h1 {
+  color: #000;
+}
 
 button:hover {
   transform: translateY(-1px);
@@ -251,3 +304,4 @@ button.primary {
     align-items: flex-start;
   }
 }
+
