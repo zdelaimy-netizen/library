@@ -36,17 +36,31 @@ function renderLibrary() {
 
     card.dataset.id = book.id;
 
-    const titleEl = document.createElement("p");
-    titleEl.textContent = `Title: ${book.title}`;
+    const header = document.createElement("div");
+    header.classList.add("card-header");
+
+    const titleEl = document.createElement("h3");
+    titleEl.textContent = book.title;
 
     const authorEl = document.createElement("p");
-    authorEl.textContent = `Author: ${book.author}`;
+    authorEl.classList.add("muted");
+    authorEl.textContent = `by ${book.author}`;
 
-    const pagesEl = document.createElement("p");
-    pagesEl.textContent = `Pages: ${book.pages}`;
+    header.appendChild(titleEl);
+    header.appendChild(authorEl);
 
-    const readEl = document.createElement("p");
-    readEl.textContent = `Read: ${book.read ? "Yes" : "No"}`;
+    const metaRow = document.createElement("div");
+    metaRow.classList.add("meta-row");
+
+    const pagesEl = document.createElement("span");
+    pagesEl.textContent = `${book.pages} pages`;
+
+    const readBadge = document.createElement("span");
+    readBadge.classList.add("badge");
+    readBadge.textContent = book.read ? "Read" : "Not read yet";
+
+    metaRow.appendChild(pagesEl);
+    metaRow.appendChild(readBadge);
 
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove";
@@ -73,12 +87,14 @@ function renderLibrary() {
       }
     });
 
-    card.appendChild(titleEl);
-    card.appendChild(authorEl);
-    card.appendChild(pagesEl);
-    card.appendChild(readEl);
-    card.appendChild(removeBtn);
-    card.appendChild(toggleBtn);
+    const actions = document.createElement("div");
+    actions.classList.add("card-actions");
+    actions.appendChild(toggleBtn);
+    actions.appendChild(removeBtn);
+
+    card.appendChild(header);
+    card.appendChild(metaRow);
+    card.appendChild(actions);
 
     container.appendChild(card);
   });
